@@ -5,6 +5,7 @@ const content = document.querySelector('p');
 
 const increase = function () {
     content.textContent++;
+    console.log(content.textContent);
     if (content.textContent > 0) {
         content.classList.add('increase_color')
         content.classList.remove('decrease_color')
@@ -14,6 +15,7 @@ const increase = function () {
 
 const decrease = function () {
     content.textContent--;
+    console.log(content.textContent);
     if (content.textContent < 0) {
         content.classList.remove('increase_color')
         content.classList.add('decrease_color')
@@ -22,9 +24,10 @@ const decrease = function () {
 
 const reset = function () {
     content.textContent = 0;
-    content.style.color = 'black'
+    content.classList.remove('increase_color')
+    content.classList.remove('decrease_color')
 }
 
+resetBtn.addEventListener('click', reset)
 increaseBtn.addEventListener('click', increase)
 decreaseBtn.addEventListener('click', decrease)
-resetBtn.addEventListener('click', reset)
